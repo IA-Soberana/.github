@@ -85,7 +85,7 @@ Prefira **squash merge**: assim a mensagem final na branch principal é o títul
 
 ## 5. Validação automática
 
-As regras são verificadas por três workflows mantidos em [`IA-Soberana/ia-soberana`](https://github.com/IA-Soberana/ia-soberana):
+As regras são verificadas por três workflows mantidos neste repositório ([`IA-Soberana/.github`](https://github.com/IA-Soberana/.github)):
 
 | Workflow | Valida |
 | --- | --- |
@@ -107,16 +107,16 @@ permissions:
 
 jobs:
   titulo:
-    uses: IA-Soberana/ia-soberana/.github/workflows/pr-title.yml@main
+    uses: IA-Soberana/.github/.github/workflows/pr-title.yml@main
   commits:
-    uses: IA-Soberana/ia-soberana/.github/workflows/commit-messages.yml@main
+    uses: IA-Soberana/.github/.github/workflows/commit-messages.yml@main
   branch:
-    uses: IA-Soberana/ia-soberana/.github/workflows/branch-name.yml@main
+    uses: IA-Soberana/.github/.github/workflows/branch-name.yml@main
 ```
 
-> O repositório que hospeda os workflows precisa liberar o acesso nas configurações de Actions: em **Settings → Actions → General → Access**, permita o acesso por repositórios da organização. Sem isso, a chamada falha na inicialização.
+> Este repositório é público, então qualquer repositório da organização pode chamar os workflows sem configuração adicional de acesso. (Se os workflows estivessem em um repositório privado, seria preciso liberar o acesso em **Settings → Actions → General → Access**.)
 
-O próprio `ia-soberana` não precisa desse arquivo: os workflows rodam lá pelo gatilho `pull_request`.
+O próprio `.github` não precisa desse arquivo: os workflows rodam aqui pelo gatilho `pull_request`.
 
 ## 6. Checklist antes de abrir o PR
 
