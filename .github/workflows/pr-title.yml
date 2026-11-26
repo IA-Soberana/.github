@@ -1,0 +1,33 @@
+name: Título do PR
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    name: Validar título do PR
+    if: github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar padrão "tipo #issue: mensagem"
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          PADRAO='^(feat|fix|doc|style|refactor|perf|test|build|ci|chore|revert) #[0-9]+: .+$'
+
+          if [[ "$PR_TITLE" =~ $PADRAO ]]; then
+            echo "Título válido: $PR_TITLE"
+            exit 0
+          fi
+
+          echo "::error::Título fora do padrão: $PR_TITLE"
+          echo ""
+          echo "Formato: tipo #issue: mensagem"
+          echo "Tipos: feat, fix, doc, style, refactor, perf, test, build, ci, chore, revert"
+          echo "Exemplo: feat #12: adiciona login com Google"
+          exit 1

@@ -15,4 +15,4 @@ Para sobrescrever um padrão, crie o arquivo correspondente no repositório dese
 
 ## Validação automática
 
-As regras descritas no guia são verificadas por workflows mantidos em [`IA-Soberana/ia-soberana`](https://github.com/IA-Soberana/ia-soberana). A seção 5 do `CONTRIBUTING.md` mostra como ativar as validações em um repositório.
+As regras descritas no guia são verificadas por workflows mantidos neste repositório, em [`.github/workflows`](https://github.com/IA-Soberana/.github/tree/main/.github/workflows). A seção 5 do `CONTRIBUTING.md` mostra como ativar as validações em um repositório.
