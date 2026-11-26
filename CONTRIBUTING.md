@@ -114,6 +114,8 @@ jobs:
     uses: IA-Soberana/ia-soberana/.github/workflows/branch-name.yml@main
 ```
 
+> O repositório que hospeda os workflows precisa liberar o acesso nas configurações de Actions: em **Settings → Actions → General → Access**, permita o acesso por repositórios da organização. Sem isso, a chamada falha na inicialização.
+
 O próprio `ia-soberana` não precisa desse arquivo: os workflows rodam lá pelo gatilho `pull_request`.
 
 ## 6. Checklist antes de abrir o PR
